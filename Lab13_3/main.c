@@ -1,14 +1,20 @@
-//
-//  main.c
-//  Lab13_3
-//
-//  Created by kostya on 30.11.2022.
-//
-
 #include <stdio.h>
+#include <string.h>
+#include <ctype.h>
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    printf("Hello, World!\n");
-    return 0;
+int count(char s[100]);
+
+int main() {
+    char s[100];
+    printf("Введите текст\n");
+    fgets(s, 100, stdin);
+    printf("Число слов написанных с большой буквы = %i\n",count(s));
+}
+
+int count(char s[100]){
+    int cn=0;
+    for (int i = 1; i<strlen(s);i++){
+        if (s[i-1]==' ' && toupper(s[i])==s[i]) {cn++;}
+    }
+    return cn;
 }
